@@ -1,4 +1,4 @@
-package com.snhu.sslserver;
+package com.snhu.sslserver.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

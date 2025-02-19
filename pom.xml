@@ -42,24 +42,46 @@
 	</dependencies>
 
 	<build>
-	<sourceDirectory>src/main</sourceDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-            	<groupId>org.owasp</groupId>
-            	<artifactId>dependency-check-maven</artifactId>
-            	<version>5.3.0</version>
-            	<executions>
-                  <execution>
-                      <goals>
-                          <goal>check</goal>
-                      </goals>
-                  </execution>
-              </executions>
-            </plugin>
+    			<groupId>org.owasp</groupId>
+   				 <artifactId>dependency-check-maven</artifactId> <!-- OWASP Dependency Check updated -->
+    				<version>6.5.3</version>
+    			<executions>
+        		<execution>
+            	<goals>
+                <goal>check</goal>
+            	</goals>
+        	</execution>
+    		</executions>
+			<configuration>
+                <suppressionFiles>
+                    <suppressionFile>suppression.xml</suppressionFile>  <!-- Suppression file added to make dependency check smaller-->
+                </suppressionFiles>
+            </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
+				<executions>
+					<execution>
+						<id>generate-dependency-report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>tree</goal>
+						</goals>
+						<configuration>
+							<outputFile>${project.build.directory}/dependency-tree.txt</outputFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
