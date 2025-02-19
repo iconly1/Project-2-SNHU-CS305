@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.snhu</groupId>
 	<artifactId>ssl-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>ssl-server</name>
 	<description>ssl-server skeleton for CS-305</description>
 
@@ -42,6 +42,7 @@
 	</dependencies>
 
 	<build>
+	<sourceDirectory>src/main</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
